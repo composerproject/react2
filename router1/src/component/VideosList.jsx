@@ -1,10 +1,10 @@
-import {usePostContext} from "../utils/postContext.jsx";
-import PostItem from './PostItem.jsx'
+import {useVideoContext} from "../utils/videoContext.jsx";
+import VideoItem from './VideoItem.jsx'
 
 
-const PostsTitles = () => {
+const VideosList = () => {
 
-    const [{posts}] = usePostContext()
+    const [{posts}] = useVideoContext()
 
     return (
         <>
@@ -13,7 +13,7 @@ const PostsTitles = () => {
                     <ul>
                         {
                             posts.map((post) => {
-                                return <PostItem key={post.id} post={post} />
+                                return <VideoItem key={post.id} post={post} />
                             })
                         }
                     </ul>
@@ -23,4 +23,4 @@ const PostsTitles = () => {
         </>
     )
 }
-export default PostsTitles;
+export default VideosList;

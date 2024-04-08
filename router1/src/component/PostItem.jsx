@@ -1,9 +1,10 @@
 import {usePostContext} from '../utils/postContext.jsx';
-
+import{ useNavigate } from "react-router-dom";
 
 const PostItem = ({post}) => {
 
     const [_, dispatch] = usePostContext()
+    const navigate = useNavigate();
 
     const handleDelete = () => {
         dispatch({
@@ -12,11 +13,16 @@ const PostItem = ({post}) => {
         })
     }
 
+    const handleNavigate = () => {
+        navigate(`/post/${post.id}`);
+    };
+
     return (
         <li style={{display: 'flex', alignItems: 'center', gap: '10px'}}>
-            <h5>{post.title}</h5>
+            <button onClick={handleNavigate}>{post.title}</button>
             {/* <p>{post.description}</p> */}
             {/* <button onClick={handleDelete}>X</button> */}
+            {/* <button onClick={handleNavigate}>Voir plus</button> */}
         </li>
     )
 }

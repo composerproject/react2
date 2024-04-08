@@ -9,9 +9,10 @@ import Me from "./pages/Me/index.jsx";
 import Videos from './pages/Videos/index.jsx';
 import News from './pages/News/index.jsx';
 
-import AddPosts from './pages/admin/AddPosts/index.jsx';
 import PostsList from './component/PostsList.jsx';
 import Form from './component/Form.jsx';
+import Admin from './pages/admin/index.jsx';
+import Post from './pages/Post/Post.jsx';
 
 
 function App() {
@@ -39,16 +40,12 @@ function App() {
         <Route path="/contact" element={<Contact />} />
         <Route path="/me" element={<Me />} />
 
-        <Route path="/admin" element={<AddPosts />} />
+        <Route path="/admin" element={<Admin />} />
+        <Route path="/post/:id" element={<Post />} />
+
       </Routes>
 
 
-      <div>
-        <Form/>
-      </div>
-      <div>
-          <PostsList/>
-      </div>
     </>
   )
 }
