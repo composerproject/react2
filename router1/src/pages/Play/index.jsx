@@ -1,8 +1,12 @@
+import ShogiBoard from "./ShogiBoard"
 
 
 function Play() {
   return (
-    <div>Play</div>
+    <>
+      <div>Play</div>
+      <ShogiBoard />
+    </>
   )
 }
 
