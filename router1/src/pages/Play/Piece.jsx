@@ -32,19 +32,25 @@ const pieceNames = {
   '+R': '龍',
 };
 
+
 const Piece = ({ piece }) => {
-  const isGote = piece !== piece.toUpperCase();
-  const displayName = pieceNames[piece] || piece;
-  
+  // Determine if the piece belongs to Gote based on its case
+  // const isGote = piece.toUpperCase() === piece && /[A-Z]/.test(piece);
+  const isGote = piece.toLowerCase() === piece;
+
+  const displayName = pieceNames[piece.toLowerCase()] || piece;
+
   return (
-    <span style={{
-      fontWeight: 'bold',
-      display: 'inline-block',
-      transform: isGote ? 'rotate(180deg)' : 'none'
-    }}>
-      {displayName}
-    </span>
+      <span style={{
+          fontWeight: 'bold',
+          display: 'inline-block',
+          // Apply rotation only if it should be rotated
+          transform: isGote ? 'rotate(180deg)' : 'none',
+      }}>
+          {displayName}
+      </span>
   );
 };
 
 export default Piece;
+
