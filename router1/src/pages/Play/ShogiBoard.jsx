@@ -60,7 +60,7 @@ const ShogiBoard = () => {
                 const piece = countMatch[2];
     
                 // Check if piece is uppercase (gote) or lowercase (sente)
-                if (piece === piece.toUpperCase()) {
+                if (piece === piece.toLowerCase()) {
                     // Add count of gote's pieces
                     for (let i = 0; i < count; i++) {
                         hand.gote.push(piece);
@@ -110,7 +110,7 @@ const ShogiBoard = () => {
     
     const getPossibleMoves = (piece, i, j) => {
       const moves = [];
-      const isSente = piece === piece.toLowerCase();
+      const isSente = piece === piece.toUpperCase();
 
     // Check if a square is occupied by a friendly piece
     const isFriendlyPiece = (x, y) => {
