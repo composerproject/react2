@@ -110,7 +110,7 @@ const ShogiBoard = () => {
     
     const getPossibleMoves = (piece, i, j) => {
       const moves = [];
-      const isSente = piece === piece.toUpperCase();
+      const isSente = piece === piece.toLowerCase();
 
     // Check if a square is occupied by a friendly piece
     const isFriendlyPiece = (x, y) => {
