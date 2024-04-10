@@ -4,17 +4,17 @@ const initialState = {
     name: '',
     knights: [
         {
-            id:0,
+            id:1,
             name:'Dovahkiin',
             age: 32
         },
         {
-            id:1,
+            id:2,
             name:'Eragon',
             age: 15
         }
     ],
-    id: 2,
+    id: 3,
     error: ''
 }
 

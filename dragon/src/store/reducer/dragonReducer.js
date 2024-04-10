@@ -4,15 +4,15 @@ const initialState = {
     name: '',
     dragons: [
         {
-            id:0,
+            id:1,
             name:'Draco'
         },
         {
-            id:1,
+            id:2,
             name:'Saphira'
         }
     ],
-    id: 2,
+    id: 3,
     error: ''
 }
 
@@ -21,8 +21,6 @@ const dragonReducer = (state = initialState, action) => {
     switch (action.type) {
 
         case DRAGON_SET_VALUE:
-            console.log('dragon : ');
-            console.log(state)
             return {
                 ...state,
                 name: action.payload,

@@ -1,4 +1,4 @@
-import { selectCoupleDragonId, selectCoupleKnightId, selectCouples } from "../../store/selectors/coupleSelectors";
+import { selectCoupleDragonId, selectCoupleError, selectCoupleKnightId, selectCouples } from "../../store/selectors/coupleSelectors";
 import { selectDragons } from "../../store/selectors/dragonSelectors";
 import { selectKnights } from "../../store/selectors/knightSelectors"
 import {useSelector, useDispatch} from "react-redux"
@@ -11,6 +11,8 @@ function Couple() {
   const couples = useSelector(selectCouples);
   const dragonId = useSelector(selectCoupleDragonId);
   const knightId = useSelector(selectCoupleKnightId);
+  const error = useSelector(selectCoupleError);
+
 
   const dispatch = useDispatch();
 
@@ -32,19 +34,25 @@ function Couple() {
     dispatch(addCouple());
   }
 
+  const handleDeleteCouple = (coupleId) => {
+    dispatch(deleteCouple(coupleId));
+  }
+
   return (
     <>
       <div>Paires</div>
-      <button onClick={add}>Add Couple</button>
+      {error !== "" && <p style={{color: "red"}}>{error}</p>}
       <table>
         <tbody>
           <tr>
             <td>Chevaliers</td>
-            {knights.map((knight => (<td key={knight.id} ><button disabled={couples.find(couple => couple.knightId === knight.id)} onClick={() => handleKnightClick(knight.id)}>{knight.name}</button></td>)))}
+            {/* {knights.map((knight => (<td key={knight.id} ><button disabled={couples.find(couple => couple.knightId === knight.id)} onClick={() => handleKnightClick(knight.id)}>{knight.name}</button></td>)))} */}
+            {knights.map((knight => (<td key={knight.id} ><button  onClick={() => handleKnightClick(knight.id)}>{knight.name}</button></td>)))}
           </tr>
           <tr>
             <td>Dragons</td>
-            {dragons.map((dragon => (<td key={dragon.id}><button disabled={couples.find(couple => couple.dragonId === dragon.id)} onClick={() => handleDragonClick(dragon.id)}>{dragon.name}</button></td>)))}
+            {/* {dragons.map((dragon => (<td key={dragon.id}><button disabled={couples.find(couple => couple.dragonId === dragon.id)} onClick={() => handleDragonClick(dragon.id)}>{dragon.name}</button></td>)))} */}
+            {dragons.map((dragon => (<td key={dragon.id}><button onClick={() => handleDragonClick(dragon.id)}>{dragon.name}</button></td>)))}
           </tr>
         </tbody>
       </table>
@@ -60,7 +68,7 @@ function Couple() {
           <tr key={couple.id}>
             <td>{knights.find(knight => knight.id == couple.knightId).name}</td>
             <td>{dragons.find(dragon => dragon.id == couple.dragonId).name}</td>
-            <td><button onClick={() => dispatch(deleteCouple)}>X</button></td>
+            <td><button onClick={() => handleDeleteCouple(couple.id)}>X</button></td>
           </tr>
           )))}
         </tbody>

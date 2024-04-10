@@ -5,19 +5,16 @@ const initialState = {
     knightId: '',
     couples: [
         {
-            id:0,
-            dragonId:0,
-            knightId:0,
+            id:1,
+            dragonId:1,
+            knightId:1,
         },
     ],
-    id: 1,
+    id: 2,
     error: ''
 }
 
 const coupleReducer = (state = initialState, action) => {
-    // console.log(checkCoupleAdd(state.dragonId, state.knightId));
-    console.log(state)
-
     switch (action.type) {
 
         case COUPLE_SET_DRAGON:
@@ -51,6 +48,7 @@ const coupleReducer = (state = initialState, action) => {
             }
 
         case COUPLE_DELETE:
+            
             return {
                 ...state,
                 couples: state.couples.filter((couple) => couple.id !== action.payload)
@@ -58,15 +56,6 @@ const coupleReducer = (state = initialState, action) => {
         default:
             return state;
     }
-}
-
-const checkCoupleAdd = (dragonId, knightId) => {
-    // console.log(!(dragonId.trim().length === 0 || knightId.trim().length === 0));
-    return !(dragonId.toString().trim().length === 0 || knightId.toString().trim().length === 0);
-
-
-    
-    // return !!(dragonId.trim() && knightId.trim());
 }
 
 export default coupleReducer;
