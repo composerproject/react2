@@ -2,15 +2,27 @@ import {DRAGON_ADD, DRAGON_DELETE, DRAGON_SET_ERROR, DRAGON_SET_VALUE} from "../
 
 const initialState = {
     name: '',
-    dragons: [],
-    id: 1,
+    dragons: [
+        {
+            id:0,
+            name:'Draco'
+        },
+        {
+            id:1,
+            name:'Saphira'
+        }
+    ],
+    id: 2,
     error: ''
 }
 
 const dragonReducer = (state = initialState, action) => {
+    
     switch (action.type) {
 
         case DRAGON_SET_VALUE:
+            console.log('dragon : ');
+            console.log(state)
             return {
                 ...state,
                 name: action.payload,

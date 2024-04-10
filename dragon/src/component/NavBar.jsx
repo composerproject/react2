@@ -10,6 +10,7 @@ const NavBar = () => {
         <nav style={{display: "flex", gap: '15px'}}>
             <NavLink style={checkIsActive} to={'/'}>Dragons</NavLink>
             <NavLink style={checkIsActive} to={'/knights'}>Chevaliers</NavLink>
+            <NavLink style={checkIsActive} to={'/couples'}>Paires</NavLink>
         </nav>
     );
 };

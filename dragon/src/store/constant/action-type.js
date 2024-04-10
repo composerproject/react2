@@ -8,3 +8,10 @@ export const KNIGHT_SET_AGE = 'KNIGHT/SET_AGE';
 export const KNIGHT_ADD = 'KNIGHT/ADD';
 export const KNIGHT_SET_ERROR = 'KNIGHT/SET_ERROR';
 export const KNIGHT_DELETE = 'KNIGHT/DELETE';
+
+
+export const COUPLE_SET_DRAGON = 'COUPLE/SET_DRAGON';
+export const COUPLE_SET_KNIGHT = 'COUPLE/SET_KNIGHT';
+export const COUPLE_ADD = 'COUPLE/ADD';
+export const COUPLE_SET_ERROR = 'COUPLE/SET_ERROR';
+export const COUPLE_DELETE = 'COUPLE/DELETE';

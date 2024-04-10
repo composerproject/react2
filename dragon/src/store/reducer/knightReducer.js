@@ -5,13 +5,13 @@ const initialState = {
     knights: [
         {
             id:0,
-            name:'Perceval',
-            age: 844
+            name:'Dovahkiin',
+            age: 32
         },
         {
             id:1,
-            name:'Tristan',
-            age: 794
+            name:'Eragon',
+            age: 15
         }
     ],
     id: 2,
